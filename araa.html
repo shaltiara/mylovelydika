@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Dika</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .container {
+            margin-top: 5vh;
+            position: relative;
+            z-index: 5;
+            padding-bottom: 5vh;
+        }
+        .love-letter {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 1rem;
+            display: inline-block;
+            box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.1);
+            max-width: 80vw;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1.5s ease-in-out;
+            overflow-y: auto;
+            max-height: 70vh;
+            backdrop-filter: blur(3px);
+        }
+        .button {
+            margin-top: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .ornament {
+            position: absolute;
+            font-size: 6rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        .teddy {
+            top: 15%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+        .flowers {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 0.5s;
+        }
+        .popcorn {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+        .white-heart {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 1.5s;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(1rem); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Media Queries */
+        @media (max-width: 600px) {
+            .love-letter {
+                padding: 1.5rem;
+                max-width: 85vw;
+                max-height: 80vh;
+            }
+            .button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            .ornament {
+                font-size: 4rem;
+            }
+            .teddy {
+                top: 10%;
+                left: 10%;
+            }
+            .flowers {
+                bottom: 15%;
+                right: 10%;
+            }
+            .popcorn {
+                top: 15%;
+                right: 10%;
+            }
+            .white-heart {
+                bottom: 10%;
+                left: 10%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="ornament teddy">🧸</div>
+        <div class="ornament flowers">💐</div>
+        <div class="ornament popcorn">🍿</div>
+        <div class="ornament white-heart">🤍</div>
+    </div>
+    
+    <div class="container">
+        <div class="love-letter">
+            <h2>Dear Dika,</h2>
+            <p id="question">Penasaran gakk?</p>
+            <button class="button" id="nextButton">Yes</button>
+        </div>
+    </div>
+
+    <script>
+        let step = 0;
+        document.getElementById("nextButton").addEventListener("click", function() {
+            const question = document.getElementById("question");
+            if (step < 1) {
+                question.innerText = "Are you really really that curious?";
+                step++;
+            } else if (step < 2) {
+                question.innerHTML = `dear my beloved dika, haiii gimana kabarnyaa? aku kangen bgt sm kamu tau. aku bingung mau chat kamu atau ngga, karena chat terakhir ada di aku dan kamu gak bales, jdi aku pikir kamu gamau aku ganggu. tapi kalau misal km maunya lain, maafin aku yaa. and yaap aku ngide ajasihh bikin kaya ginian hihi, walaupun jelek bgt dan alakadarnya yahh ☹️.<br><br>
+                dika sayaangg, jujur aku khawatir bgt sm kamuu. aku gatau ada hal apa yg lg kamu laluin, pasti berat yaa? kalau km emg gamau cerita sm aku, ya gapapa. tpi klo mau berbagi masalah km sm aku, aku bakalan senengg dengerin kamuu. because that's how it should be, i'm always here for u, anytime! 😻<br><br>
+                maaf yaa karena jarak kita yg jauh ini aku jdi gabisa ada di sisi kamu waktu km lg down ginii, i'm really sorry for thatt. tpi jgn sedih yaa??? walaupun jauh, aku gak kemana mana kokkk. 🤟🏻<br><br>
+                karena kamu gak kunjung chat aku, jdi deh aku ngide bikin ginian wkwkwk. smoga km sdikit terhiburrr.<br><br>
+                oh iyaa karena besok jg udh lebaran, walau kamu ngga ngerayain, aku ttp mau ngucapin selamatt hari raya idul fitri yaaa! maafin aku kalau aku banyak salah yg mungkin aku gatauu, atau pernah bikin kamu tersinggung sm perkataan aku.<br><br>
+                semoga kita bisa cepet ketemu lagi yaa??? i love you so muchhh dikaa sayangg, the one and only man in the world that i love the mostt 🧸🔆🥰🥰🥰 🤍🤍🤍💐💐💐`;
+                step++;
+            } else if (step < 3) {
+                question.innerText = "Here's another message for you, Dika. I hope you're having a wonderful day!";
+                step++;
+            } else {
+                question.innerText = "Thank you for clicking! You've seen all the messages.";
+            }
+        });
+    </script>
+</body>
+</html>
